@@ -1,0 +1,40 @@
+/* variables */
+:root {
+    --header-height: 60px;
+    
+    --color-bg-white: #F1F5F9;
+
+    --color-border-dark: #E2E8F0;
+}
+
+/* reset */
+body, ul {
+    padding: unset;
+    margin: unset;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    all: unset;
+}
+
+
+
+/* layout */
+.g_wrapper {
+    box-shadow: inset 0 0 10px blue;
+    max-width: 1250px;
+    margin: 0 auto;
+    height: 100%;
+
+    padding: 0 1rem;
+}
+
+
+/* page */
+.g_main {
+    box-shadow: inset 0 0 10px orange;
+}
