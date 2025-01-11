@@ -1,10 +1,32 @@
 /* variables */
 :root {
     --header-height: 60px;
-    
+    /* color */
+    --color-grey: #E2E8F0;
     --color-bg-white: #F1F5F9;
+    --color-border-black: #0F172A;
 
-    --color-border-dark: #E2E8F0;
+    --color-neutral-100: #F1F5F9;
+    --color-neutral-200: #E2E8F0;
+    --color-neutral-300: #CBD5E1;
+    --color-neutral-400: #94A3B8;
+    --color-neutral-500: #64748B;
+    --color-neutral-800: #1E293B;
+    --color-neutral-900: #0F172A;
+
+    --outline-variant: var(--color-neutral-200);
+
+    --color-primary-container: #7C3AED;
+    --color-on-primary-container: #FFFFFF;
+    --color-secondary-container: #EDE9FE;
+    --color-tertiary-container:#BEF264;
+    --color-danger-container: #F43F5E;
+    --color-inverse-surface: #92400E;
+
+    --border-width-thin: 2px;
+    --radius-sm: 24px;
+
+    
 }
 
 /* reset */
@@ -21,11 +43,30 @@ button {
     all: unset;
 }
 
+input {
+    border: unset;
+    outline: unset;
+    background-color: unset;
+}
+
+a {
+    color: inherit;
+    text-decoration: unset;
+}
+
+/* typography */
+html {
+    font-size: 16px;
+}
+
+p {
+    margin: 0;
+}
+
 
 
 /* layout */
 .g_wrapper {
-    box-shadow: inset 0 0 10px blue;
     max-width: 1250px;
     margin: 0 auto;
     height: 100%;
@@ -36,5 +77,64 @@ button {
 
 /* page */
 .g_main {
-    box-shadow: inset 0 0 10px orange;
+    padding-top: 1.8rem;
+}
+
+
+/* components */
+.g_border {
+    border-style: solid;
+    border-radius: var(--radius-sm);
+    border-width: var(--border-width-thin) 5px 5px var(--border-width-thin);
+    border-color: var(--color-border-black);
+    
+}
+
+.g_btn {
+    background-color: var(--color-neutral-200);
+    color: var(--color-neutral-900);
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: 1rem 1.09rem;
+    line-height: 1;
+    font-weight: 700;
+
+    cursor: pointer;
+    
+    @media(min-width: 744px) {
+        padding: 1rem 2.5rem;
+    }
+
+    &.add {
+        background-color: var(--color-primary-container);
+        color: var(--color-on-primary-container);
+    }
+    
+    &.modify {
+        background-color: var(--color-tertiary-container);
+        color: var(--color-on-primary-container);
+    }
+    
+    &.delete {
+        background-color: var(--color-danger-container);
+        color: var(--color-on-primary-container);
+    }
+
+}
+
+
+.g_pc {
+    display: none;
+}
+
+/* media query */
+@media(min-width: 744px) {
+    .g_pc {
+        display: initial;
+    }
+
+    .g_mobile {
+        display: none;
+    }
 }
