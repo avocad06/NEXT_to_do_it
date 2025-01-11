@@ -1,0 +1,40 @@
+.item {
+
+    background-color: #FFFFFF;
+    border: 2px solid var(--color-neutral-900);
+    border-radius: var(--radius-sm);
+
+    padding: .45rem .5rem;
+
+    &.complete {
+        background-color: var(--color-secondary-container);
+
+        .content {
+            text-decoration: line-through;
+        }
+    }
+
+    .content_wrap {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .check_btn {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+    
+        }
+
+        .content:hover {
+            text-decoration: underline;
+        }
+    }
+    
+
+    &:hover {
+        .check_btn {
+            opacity: .5;
+        }
+    }
+}
