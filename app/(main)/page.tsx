@@ -61,6 +61,7 @@ async function getTodoList() {
 
     const response = await fetch(REQ_URL, {
         method: 'GET',
+        cache: 'no-store',
     });
 
     try {
