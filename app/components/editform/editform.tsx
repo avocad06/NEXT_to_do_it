@@ -77,11 +77,8 @@ function EditForm(props: { todoData: ITodoItem }) {
           if (formImgValid) {
             const imgFormData = new FormData();
             imgFormData.set('image', formImg);
-            console.log('이미지의 값이 있어 첫 번째 요청 시작');
             imgUrl = await postRequest(`${BASE_API_URL}/avo/images/upload`, 'POST', imgFormData);
-            console.log('첫 번째 요청 성공:', imgUrl);
           } else {
-            console.log('이미지의 값이 없어 첫 번째 요청 생략');
           }
           
 
@@ -89,7 +86,6 @@ function EditForm(props: { todoData: ITodoItem }) {
           if (!formImgValid || (imgUrl && imgUrl?.url)) {
             postData.imageUrl = imgUrl?.url;
             const result = await postRequest(`${BASE_API_URL}/avo/items/${id}`, 'PATCH', JSON.stringify(postData), {"Content-Type": "application/json",});
-            console.log('두 번째 요청 성공:', result);
 
 
             // 성공인 경우
@@ -98,11 +94,11 @@ function EditForm(props: { todoData: ITodoItem }) {
                 router.push('/');
             } 
           } else {
-            console.log('두 번째 요청 필요 없음');
           }
       
         } catch (error) {
-          console.error('요청 중 오류 발생:', error);
+          console.error('할 일 수정 중 오류 발생:', error);
+          alert('할 일을 업데이트하는 중 문제가 발생하였습니다. 다시 시도해 주세요.');
         }
     }
 
@@ -159,7 +155,7 @@ function EditForm(props: { todoData: ITodoItem }) {
         const postData = new FormData(e.currentTarget);
 
         // formData 확인하는 코드
-        for (const [key, value] of postData.entries()) { console.log(`${key}: ${value}`); }
+        // for (const [key, value] of postData.entries()) { console.log(`${key}: ${value}`); }
 
         postTodoData(postData);
     }
