@@ -1,0 +1,12 @@
+/* form 전체 컨텐츠 wrapper */
+.content_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+
+    .section_wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.8rem;
+    }
+}

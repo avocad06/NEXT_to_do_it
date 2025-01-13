@@ -1,0 +1,105 @@
+.edit_header {
+
+    background-color: #FFFFFF;
+    border: 2px solid var(--color-neutral-900);
+    border-radius: var(--radius-sm);
+
+    padding: .45rem .5rem;
+
+
+    /* 체크 버튼과 할 일 텍스트 wrapper */
+    .input_wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        gap: 1rem;
+        
+        .check_btn {
+            display: inline-flex;
+            cursor: pointer;
+
+
+            .check_input {
+                appearance: none;
+                display: none;
+            }
+        }
+        
+    }
+
+
+    .content {
+        color: var(--color-neutral-800);
+        text-decoration: underline;
+        font-weight: 700;
+        font-size: 1.2rem;
+        text-overflow: ellipsis;
+
+        max-width: 12rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        /* 빈 문자열일 경우 클릭 안 됨 이슈 */
+        min-width: 1rem;
+        min-height: 1rem;
+
+        .input {
+            display: none;
+        }
+
+        &.edit {
+
+            width: 100%;
+            flex: 1;
+            max-width: unset;
+            text-decoration: initial;
+
+            .input {
+                display: initial;
+                font-family: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+            }
+
+            .text {
+                display: none;
+            }
+        }
+
+
+    }
+
+    &.complete {
+        background-color: var(--color-secondary-container);
+
+        .content {
+            text-decoration: line-through;
+        }
+    }
+
+    .content_wrap {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .check_btn {
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+
+                
+
+                &:hover {
+                    opacity: .5;
+                }
+    
+        }
+
+        .content:hover {
+            text-decoration: underline;
+        }
+    }
+
+}
