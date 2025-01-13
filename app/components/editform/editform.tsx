@@ -104,57 +104,30 @@ function EditForm(props: { todoData: ITodoItem }) {
         } catch (error) {
           console.error('요청 중 오류 발생:', error);
         }
+    }
 
-        // // 이미지가 있는 경우
-        // if (formImg?.length) {
-            
-        //     // 이미지 post에 보낼 formData를 새로 생성
-        //     const imgData = new FormData();
-        //     imgData.append('image', formData.get('url'));
-        // }
+    const deleteTodoData = async(): Promise<void> => {
+      const delConfirm = confirm('삭제하시겠습니까?');
 
+      if ( !delConfirm ) {
+        return;
+      }
+      const REQ_URL = `${BASE_API_URL}/avo/items/${id}`;
+      const response = await fetch(REQ_URL, {
+        method : 'DELETE',
+      });
+  
+      if (!response.ok) {
+        throw new Error(`${REQ_URL} 요청 실패`);
+      }
+  
+      const result = await response.json();
 
-
-        // // post 가 성공했으면 받아온 url을 포함해서 todo patch
-        // const REQ_URL = `${BASE_API_URL}/api/avo/images/upload`;
-        // const res = await fetch(REQ_URL, {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type": "multipart/form-data",
-        //         ""
-        //       },
-        //     body: JSON.stringify(postData),
-        // });
-
-        // if (!res?.ok) {
-        //     console.log('error 발생');
-        //     alert('할 일 수정 중 문제가 발생하였습니다. 다시 시도해 주세요.');
-        //     setStatus('typing');
-        //     return;
-        // } 
-
-
-
-
-        // post 가 성공했으면 받아온 url을 포함해서 todo patch
-
-        // const REQ_URL = `${BASE_API_URL}/avo/items`;
-        // const res = await fetch(REQ_URL, {
-        //     method: 'POST',
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //       },
-        //     body: JSON.stringify(postData),
-        // });
-
-        // if (!res?.ok) {
-        //     console.log('error 발생');
-        //     alert('할 일 수정 중 문제가 발생하였습니다. 다시 시도해 주세요.');
-        //     setStatus('typing');
-        //     return;
-        // } 
-
-        // router.replace('/');
+      if (result?.message) {
+        setStatus('typing');
+        alert('할 일이 삭제되었습니다.');
+        router.push('/');
+      }
     }
 
 
@@ -222,6 +195,7 @@ function EditForm(props: { todoData: ITodoItem }) {
                         icon={<DeleteIcn />}
                         button_class={`g_border g_btn delete`}
                         content_class={''}
+                        onClick={deleteTodoData}
                     />
                 </div>
 
