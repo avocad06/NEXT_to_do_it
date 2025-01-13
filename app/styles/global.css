@@ -20,11 +20,13 @@
     --color-on-primary-container: #FFFFFF;
     --color-secondary-container: #EDE9FE;
     --color-tertiary-container:#BEF264;
+    --color-on-tertiary-container: var(--color-neutral-900);
     --color-danger-container: #F43F5E;
     --color-inverse-surface: #92400E;
 
     --border-width-thin: 2px;
     --radius-sm: 24px;
+    --radius-md: 27px;
 
     
 }
@@ -43,7 +45,7 @@ button {
     all: unset;
 }
 
-input {
+input, textarea {
     border: unset;
     outline: unset;
     background-color: unset;
@@ -113,7 +115,7 @@ p {
     
     &.modify {
         background-color: var(--color-tertiary-container);
-        color: var(--color-on-primary-container);
+        color: var(--color-on-tertiary-container);
     }
     
     &.delete {

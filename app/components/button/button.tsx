@@ -8,11 +8,12 @@ interface IButtonProps {
     content?: string;
     content_class?: string;
     disabled?: boolean;
+    onClick?: () => void;
 }
 
 function Button( props : IButtonProps) {
     return (
-        <button type={props?.type ?? "button"} className={props.button_class} disabled={props?.disabled}>
+        <button type={props?.type ?? "button"} className={props.button_class} disabled={props?.disabled} onClick={props?.onClick}>
            {props?.icon && props.icon}
            <span className={props?.content_class && props.content_class}>
                 {props?.content ?? ''}

@@ -18,7 +18,7 @@ function AddBar() {
      * 서버에 POST 요청
      */
 
-    const postTodoData = async(formData) => {
+    const postTodoData = async(formData) => { 
         
         // data fetch
         const postData = Object.fromEntries(formData);
