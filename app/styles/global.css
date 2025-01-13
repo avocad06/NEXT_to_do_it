@@ -80,6 +80,9 @@ p {
 /* page */
 .g_main {
     padding-top: 1.8rem;
+
+    /* 임의 */
+    padding-bottom: 40%;
 }
 
 
@@ -103,10 +106,7 @@ p {
     font-weight: 700;
 
     cursor: pointer;
-    
-    @media(min-width: 744px) {
-        padding: 1rem 2.5rem;
-    }
+
 
     &.add {
         background-color: var(--color-primary-container);
