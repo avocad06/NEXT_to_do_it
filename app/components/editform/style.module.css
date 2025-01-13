@@ -9,4 +9,18 @@
         flex-wrap: wrap;
         gap: 1.8rem;
     }
+
+
+    /* 수정, 삭제 버튼 wrapper */
+    .btn_wrap {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+
+        
+        @media(min-width: 774px) {
+            margin-left: auto;;
+            
+        }
+    }
 }

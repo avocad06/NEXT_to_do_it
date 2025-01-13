@@ -4,10 +4,6 @@
 
 import { validateId } from "../../../utils/validateId";
 
-/** components */
-import ListItem from '../../../components/checklist/listitem/listitem'
-import FileInput from "../../../components/imageinput/fileinput";
-
 import { BASE_API_URL } from "../../../constants/consts";
 
 import type { ITodoItem } from "../../../types/types";
