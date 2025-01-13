@@ -7,6 +7,12 @@ function validateFile(file: File): null | {isValid: boolean; errMsg: string; } {
   
     // 파일명 가져오기
     const fileNameTest = file?.name ? file.name : '';
+
+
+    // 파일 이름이 없으면 함수 종료
+    if (!fileNameTest) { return { isValid, errMsg }; }
+
+
     const matches = fileNameTest.match(/(.*?)(\.[^.]*$)/);
     const fileName = matches ? matches[1] : fileNameTest;
     
