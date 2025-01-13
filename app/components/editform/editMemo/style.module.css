@@ -1,6 +1,6 @@
 .container {
     background-image: url('../../../../public/assets/memo.svg');
-    min-height: 300px;
+    min-height: 100%;
     padding: 1.2rem;
     /* 스크롤바 영역 */
     padding-right: 1rem;
