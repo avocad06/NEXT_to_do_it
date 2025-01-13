@@ -31,7 +31,7 @@ async function ItemPage({ params:iParams } : { params: Promise<{ itemId: string;
     validateId(itemId);
 
 
-    const todoData = await getTodoItem( Number(itemId) );
+    const todoData = await getTodoItem(itemId);
 
     return (
         <main className={'g_main'}>
@@ -50,7 +50,7 @@ export default ItemPage;
  * @description 이 함수는 컴포넌트 안에 있을 필요 없습니다
  */
 
-export async function getTodoItem(itemId: number): Promise<null | ITodoItem> {
+    async function getTodoItem(itemId): Promise<null | ITodoItem> {
 
     /**
     

@@ -42,7 +42,7 @@ async function MainPage() {
  * @description 이 함수는 컴포넌트 안에 있을 필요 없습니다
  */
 
-export async function getTodoList() {
+async function getTodoList() {
 
     /**
     
