@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@next/font": "^14.2.15",
     "@svgr/webpack": "^8.1.0",
     "busboy": "^1.6.0",
     "caniuse-lite": "^1.0.30001692",
