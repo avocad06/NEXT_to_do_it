@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { BASE_API_URL } from '../../constants/consts';
 import { useRouter } from 'next/navigation';
 
-function AddBar() {
+function AddBar({ onClick }: {onClick: () => Promise<void>;}) {
 
     const [ inputValue, setInputValue ] = useState(''); // 입력 값
     const [ status, setStatus ] = useState<string | 'empty' | 'typing' | 'submitting'>('empty'); // input 유효성 상태
@@ -40,7 +40,8 @@ function AddBar() {
         } 
 
         setInputValue('');
-        router.replace('/');
+        // router.replace('/');
+        onClick();
     }
     
 
