@@ -1,10 +1,10 @@
 import { apiRequest } from "../api/client"
-import { BASE_API_URL } from "../constants/consts";
+import { TID } from "../constants/consts";
 
 // services/todoservice.ts
-const todoService = {
+export const TodoService = {
     async fetchTodo() {
-        const responseData = await apiRequest({ url: '', method: 'GET',});
+        const responseData = await apiRequest({ url: `/${TID}/items`, method: 'GET',});
 
         // 에러인 경우
         if ( !apiRequest ) {

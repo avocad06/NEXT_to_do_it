@@ -1,10 +1,8 @@
-import { getDefaultResultOrder } from "dns";
-import AddBar from "../components/addbar/addbar";
-import CheckList from "../components/checklist/checklist";
 import { BASE_API_URL, TID } from "../constants/consts";
 import { square } from "../styles/fonts";
 import type { ITodoItem } from '../types/types'
-import styles from './style.module.css';
+import TodoList from "./components/todolist/todolist";
+
 
 export type TodoInline = Pick<ITodoItem, "id" | "name" | "isCompleted">
 
@@ -14,24 +12,7 @@ async function MainPage() {
     
     return (
         <main className={`g_main ${square.variable}`}>
-            <div className={"g_wrapper"}>
-                {/* 할 일 추가 input */}
-                <AddBar />
-
-                <div className={styles.card_wrap}>
-                    {/* 진행 중인 할 일 */}
-                    <CheckList
-                        isCompleted={false}
-                        content={todoData?.filter((item) => item.isCompleted === false) ?? []}
-                    />
-                    {/* 완료된 할 일 */}
-                    <CheckList
-                        isCompleted={true}
-                        content={todoData?.filter((item) => item.isCompleted === true) ?? []}
-                    />
-                </div>
-
-            </div>
+            <TodoList todoData={todoData} />
         </main>
     )
 }
