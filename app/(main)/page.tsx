@@ -1,6 +1,7 @@
+import { getDefaultResultOrder } from "dns";
 import AddBar from "../components/addbar/addbar";
 import CheckList from "../components/checklist/checklist";
-import { BASE_API_URL } from "../constants/consts";
+import { BASE_API_URL, TID } from "../constants/consts";
 import { square } from "../styles/fonts";
 import type { ITodoItem } from '../types/types'
 import styles from './style.module.css';
@@ -57,7 +58,7 @@ async function getTodoList() {
     let resultData = []; // 반환 값 초기화
 
     // 요청 url
-    const REQ_URL = `${BASE_API_URL}/avo/items`;
+    const REQ_URL = `${BASE_API_URL}/${TID}/items`;
 
     const response = await fetch(REQ_URL, {
         method: 'GET',
