@@ -11,12 +11,12 @@ import styles from './style.module.css';
 function TodoList({todoData}: { todoData:TodoInline[] }) {
     
     // 초기 렌더링 값을 서버 렌더링 값으로 전달
-    const { todo, fetchTodo } = useTodo(todoData);
+    const { todo, fetchTodo, addTodo } = useTodo(todoData);
 
     return (
         <div className={"g_wrapper"}>
             <button onClick={fetchTodo} style={{backgroundColor: 'pink', cursor: 'pointer', borderRadius: '15px'}}>클릭하면 새로고침 됨</button>
-            <AddBar onClick={fetchTodo} />
+            <AddBar onAdd={addTodo} onRefresh={fetchTodo} />
             <div className={styles.card_wrap}>
                 <CheckList
                     isCompleted={false}
