@@ -1,4 +1,5 @@
 import { BASE_API_URL, TID } from "../constants/consts";
+import { TodoService } from "../services/todoservice";
 import { square } from "../styles/fonts";
 import type { ITodoItem } from '../types/types'
 import TodoList from "./components/todolist/todolist";
@@ -8,7 +9,7 @@ export type TodoInline = Pick<ITodoItem, "id" | "name" | "isCompleted">
 
 async function MainPage() {
 
-    const todoData = await getTodoList();
+    const todoData:TodoInline[] = await TodoService.fetchTodo();
     
     return (
         <main className={`g_main ${square.variable}`}>

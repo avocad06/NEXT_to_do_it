@@ -4,10 +4,9 @@ import styles  from './style.module.css';
 import PlusIcn from '../icons/plus_icon.svg';
 import Button from '../button/button';
 import { useState } from 'react';
-import { BASE_API_URL } from '../../constants/consts';
 import { useRouter } from 'next/navigation';
 
-function AddBar({ onClick }: {onClick: () => Promise<void>;}) {
+function AddBar({ onAdd, onRefresh }: {onAdd: (data) => Promise<any>, onRefresh: () => Promise<any>}) {
 
     const [ inputValue, setInputValue ] = useState(''); // 입력 값
     const [ status, setStatus ] = useState<string | 'empty' | 'typing' | 'submitting'>('empty'); // input 유효성 상태
@@ -22,26 +21,18 @@ function AddBar({ onClick }: {onClick: () => Promise<void>;}) {
         
         // data fetch
         const postData = Object.fromEntries(formData);
-
-        const REQ_URL = `${BASE_API_URL}/avo/items`;
-        const res = await fetch(REQ_URL, {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-              },
-            body: JSON.stringify(postData),
-        });
-
-        if (!res?.ok) {
-            console.log('error 발생');
-            alert('할 일 추가 중 문제가 발생하였습니다. 다시 시도해 주세요.');
+        const postRes = await onAdd(postData);
+        
+        // 실패인 경우
+        if (postRes === null) {
             setStatus('typing');
             return;
-        } 
-
+        } else {
+            onRefresh();
+        }
+        
         setInputValue('');
         // router.replace('/');
-        onClick();
     }
     
 
